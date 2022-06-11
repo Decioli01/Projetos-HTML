@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>FlyUS - Sit back, relax, and SHUT UP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- meu CSS -->
+<style type="text/css">
+    *{
+        scroll-behavior: smooth;
+        font-family: 'Gotham Medium', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+        font-weight: 600;
+        color: rgb(4, 4, 131); 
+        margin-left: 40px; 
+        margin-top: 10px;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+    .logo{
+        top: 20px;
+        left: 30px;
+        position: absolute;
+        z-index: 1;
+    }
+    .logo img{
+        width: 60%;
+    }
+    .fundo_menu{
+        padding-bottom: 10px;
+        background-color: blue;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      height: 600px;
+    }
+
+    .borda{
+        background-color: darkgrey;
+        border: 1px solid;
+    }
+
+    .bg-dark{
+        color:#fff;
+        font-weight:300;
+    }
+
+    .btn{
+        width:100px;
+    }
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+    }
+    .nav-link{
+        color: blue;
+        text-decoration: none;
+        font-weight: 600;
+        background-color: white;
+        border-radius: 10px;
+    }
+    .nav-link:hover{
+        background-color: rgb(3, 3, 107);
+        color: white;
+        text-decoration: underline;
+    }
+    .fundo-destinos{
+        padding: 15px;
+        background-color: rgb(211, 205, 245);
+    }
+    .fundo-classes{
+        padding: 15px;
+        width: 100%;
+        background-color: white; 
+    }
+    .fundo-contato{
+        padding: 25px;
+        background-color: white;
+    }
+    .contatos{
+        display: flex;
+        justify-content: space-between;
+    }
+    .comentarios{
+        padding: 15px;
+        background-color: rgb(211, 205, 245);
+    }
+    .comentarios-posts {
+        display: flex;
+    }
+    .post{
+        display: flex;
+        width: 400px;
+        align-items: center;
+        margin-left: 15px;
+    }
+    .comment{
+        width: 350px;
+        margin-left: 15px;
+        text-align: left;
+        font-style: italic;
+    }
+    .stars{
+        width: 130px;
+        height: 40px;
+    }
+    .comentarios .avatar{
+        border-radius: 50%;
+        margin-left: 20px;
+        width: 200px;
+        height: 200px;
+    }
+    .comment-text{
+        font-family: monospace;
+        font-style: italic;
+        font-size: large;
+    }
+    #destinos{
+        margin: 15px;
+        display: flex;
+        padding: 15px;
+        justify-content: space-between;
+    }
+    #destinos .destino img{
+        width: 400px;
+    }
+    .destino {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #classes{
+        margin: 15px;
+        display: flex;
+        padding-bottom: 15px;
+        justify-content: space-between;
+    }
+    #classes .classe{
+        margin: 0 5px;
+        /* width: 800px; */
+        color: rgb(1, 1, 80);
+    }
+    #contato {
+       margin-left: 20px;
+       padding: 25px;
+       font-family: sans-serif;
+       font-style: italic;
+       color: rgb(4, 4, 131);
+    }
+    input[type="text"]{
+        width: 200px;
+        outline: none;
+    }
+    input[type="text"]:focus{
+        border: 2px solid blue;
+        width: 400px;
+        transition: 0.5s;
+    }
+    .contatos2{
+        margin-left: 10px;
+    }
+    .contatos2 input{
+        margin-left: 22px;
+        width: 400px;
+        height: 100px;
+        outline: none;
+    }
+    .contatos2 input:focus{
+        border: 2px solid blue;
+    }
+    #botao-enviar{
+        border: 1px solid blue;
+        text-decoration: none;
+        font-size: 1.3em;
+        height: 50px;
+        text-align: center;
+        width: 200px;
+        margin: 80px 50px 0 100px;
+    }   
+    .footer{
+        height: fit-content;
+        width: 100%;
+        background-color: blue;
+        padding: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer ul {
+        list-style: none;
+        align-self: center;
+        margin-left: 25px;
+    }
+    .footer ul a {
+        color: white;
+    }
+    .assinatura{
+        color: white;
+        text-align: center;
+        position: absolute;
+        right: 28%;
+        margin-top: 15px;
+    }
+
+    @media screen and (max-width: 700px) {
+        #destinos{  
+            margin-left: 0px;
+            flex-direction: column;
+        } 
+        #classes{  
+            margin-left: 0px;
+            flex-direction: column;
+        }   
+        .comentarios-posts{
+            margin-left: 0px;  
+            margin-top: 10px;
+            flex-direction: column;
+        } 
+        .contatos{  
+            margin-left: 00px;
+            flex-direction: column;
+        }  
+        .footer{  
+            width: 100%;
+            display: flex;
+            margin-left: 0px;
+            flex-direction: column;
+        }
+        .assinatura{
+            position: sticky;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+            font-size: 18px;
+            background-color: blue;
+        }   
+        #contato {
+            justify-content: center;
+            width: 100%;
+            margin-left: 5px;
+            padding: 5px;
+        }
+        .contatos2{
+            margin-left: 10px;
+         }
+        .contatos2 input{
+            margin-left: 5px;
+            width: 350px;
+            height: 100px;
+            outline: none;
+        }
+    }
+
+</style>
+
+</head>
+<body>
+    <div class="logo">
+        <img src="https://image4.owler.com/logo/flyus-bv_owler_20160229_013658_original.png" alt="logo flyus">
+    </div>
+
+        <!-- Carrossel 1ª linha-->
+    <div class="row">
+        <div class="col">
+            <div id="eveline" class="carousel slide" data-ride="carousel">
+                <!-- Indicadores -->
+                <ul class="carousel-indicators">
+                  <li data-target="#eveline" data-slide-to="0" class="active"></li>
+                  <li data-target="#eveline" data-slide-to="1"></li>
+                  <li data-target="#eveline" data-slide-to="2"></li>
+                </ul>
+                <!-- O slideshow -->
+                <div class="carousel-inner">
+                    
+                    <div class="carousel-item active">
+                        <img src="https://www.gtainside.com/downloads/picr/2017-10/1522515473_20171229002928_1.jpg" alt="Boieng 737 flyus">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="https://forums.x-plane.org/screenshots/monthly_10_2015/8938c152937985fb2c91d8e39c1a94c4-747-400-united_7.jpg" alt="Chicago">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4fb6b7c8-5868-4a04-8796-a2b0428033ee/dcnb8e2-24f3945b-d793-4b05-ab03-1b5441d7be45.png/v1/fill/w_1192,h_670,q_70,strp/gta_iv__boeing_747_400_flyus_by_wilsonasmara_dcnb8e2-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjM1OCIsInBhdGgiOiJcL2ZcLzRmYjZiN2M4LTU4NjgtNGEwNC04Nzk2LWEyYjA0MjgwMzNlZVwvZGNuYjhlMi0yNGYzOTQ1Yi1kNzkzLTRiMDUtYWIwMy0xYjU0NDFkN2JlNDUucG5nIiwid2lkdGgiOiI8PTQxOTIifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.TiJvzRwO3mI2foVWFjXQR9ILQyqfQAQleo4buRqxGg8" alt="New York">
+                    </div>j
+                
+
+                    <!-- controles esquerdo e direito -->
+                    <a class="carousel-control-prev" href="#eveline" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+
+                    <a class="carousel-control-next" href="#eveline" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+        <!-- 2ª linha - MENU -->
+        <div class="row fundo_menu">
+            <div class="col">
+                <!-- abrindo a tag de navegação -->
+                <nav class="navbar navbar-expand-sm navbar-light">
+                    <a class="nav-link active" href="site_ta2021.html" > Home </a>
+                    <a class="nav-link" href="#destinos"> Destinos </a>
+                    <a class="nav-link" href="#classes"> Classes </a>
+                    <a class="nav-link" href="#contato"> Contato </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- 3ª linha -->
+        <section class="fundo-destinos">
+            <h1 style="color: rgb(4, 4, 131); margin-left: 40px; margin-top: 10px;">Nossos preços derrubam a concorrência!</h1>
+            <div id="destinos">
+                <div class=" destino">
+                    <h4 style="text-align: center; color: rgb(1, 1, 80); font-size: 1.6em;">Conheça a linda Los Santos</h4>
+                    <a href="#"><img src="https://static.wikia.nocookie.net/gta/images/0/0a/Visite.png/revision/latest/scale-to-width-down/512?cb=20120726143409&path-prefix=pt" alt="Flight to Los Santos"></a>
+                </div>
+                <div class=" destino">
+                    <h3 style="text-align: center; color: rgb(1, 1, 80);">Viaje já para Las Venturas</h3>
+                    <a href="#"><img src="https://static.wikia.nocookie.net/gta/images/e/e2/Las_Venturas.png/revision/latest/scale-to-width-down/512?cb=20120726143451&path-prefix=pt" alt="Flight to Las Venturas"></a>
+                </div>
+                <div class="destino">
+                    <h3 style="text-align: center; color: rgb(1, 1, 80); font-size: 1.6em;">Veja as praias em Vice City</h3>
+                    <a href="#"><img src="https://static.wikia.nocookie.net/gta/images/c/ca/Vice_City.png/revision/latest/scale-to-width-down/512?cb=20120726143529&path-prefix=pt" alt="Flight to Vice City"></a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4ª linha -->
+        <section class="fundo-classes">
+            <h1 style="color: rgb(4, 4, 131); margin-left: 40px; margin-top: 10px;">Nossas melhores classes esbanjando conforto!</h1>
+            <div id="classes">
+                <div class="classe">
+                    <h3>Economize!</h3>
+                    <a href="#"><img src="https://static.wikia.nocookie.net/gta/images/5/51/V%C3%B4os_dom%C3%A9sticos.png/revision/latest/scale-to-width-down/406?cb=20120726143636&path-prefix=pt" alt="Classe Domestica"></a>
+                </div>
+                <div class="classe">
+                    <h3>Conheça o mundo!</h3>
+                    <a href="#"><img src="https://static.wikia.nocookie.net/gta/images/a/a0/V%C3%B4os_Internacionais.png/revision/latest/scale-to-width-down/406?cb=20120726143732&path-prefix=pt" alt="Classe Internacional"></a>
+                </div>
+                <div class="classe">
+                    <h3>Feche negócio!</h3>
+                    <a href="#"><img src="https://static.wikia.nocookie.net/gta/images/0/07/V%C3%B4os_de_Neg%C3%B3cios.png/revision/latest/scale-to-width-down/407?cb=20120726143837&path-prefix=pt" alt="Classe de Negócios"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="comentarios">
+            <h1>Veja comentários de quem experimentou nossa companhia!</h1>
+            <div class="comentarios-posts">
+                <div class="post">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80" alt="person-comment">
+                    <div class="comment">
+                        <img class="stars" src="https://i.ibb.co/cwbC1mk/4stars.png" alt="4-estrelas">
+                        <p class="comment-text">"Incrível experiência aérea! Voo muito tranquilo! Uma pena não ter filé mignon no jantar!"</p>
+                    </div>
+                </div>
+                <div class="post">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1625389428638-d1ce406c6b76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80" alt="person-comment">
+                    <div class="comment">
+                        <img class="stars" src="https://i.ibb.co/cwbC1mk/4stars.png" alt="4-estrelas">
+                        <p class="comment-text">"Muito boa hospitalidade da equipe de bordo! Me senti voando com pessoas que já conhecia a anos."</p>
+                    </div>
+                </div>
+                <div class="post">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1634038845405-7b958c7b11e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1437&q=80" alt="person-comment">
+                    <div class="comment">
+                        <img class="stars" src="https://i.ibb.co/x7PNNxK/5stars-com.png" alt="4-estrelas">
+                        <p class="comment-text">"Melhor companhia aérea que já utilizei! Ótima equipe de bordo e poltronas super confortáveis."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="fundo-contato">
+            <div>
+                <h1>Reserve já sua passagem! Entre em contato com a gente!</h1>
+            </div>
+            <div class="contatos">    
+                <div id="contato">
+                    <h4>Seu Nome Completo: </h4>
+                    <input type="text" name="nome" placeholder="Seu nome aqui..."> <br>
+                    <h4>Seu email: </h4>
+                    <input type="text" name="email" placeholder="Seu email aqui..."><br>
+                </div>
+                <div class="contatos2">
+                    <h3 style="margin-left: 20px; padding-top: 15px; font-family: sans-serif; font-style: italic; color: rgb(4, 4, 131);" >Deixe-nos sua dúvida:</h3>
+                    <input type="textarea" placeholder="Fique a vontade e diga o que tiver vontade!">
+                </div>
+                <div class="enviar">
+                    <a id="botao-enviar" class="nav-link" href="#" > Enviar </a>
+                </div>
+            </div>    
+        </div>
+
+        <footer class="footer">
+            <div>
+                <ul>
+                    <li><a class="footer-link" href="#" > Home </a></li>
+                    <li><a class="footer-link" href="#"> Sobre </a></li>
+                    <li><a class="footer-link" href="#"> Políticas </a></li>
+                    <li><a class="footer-link" href="#"> Missão </a></li>
+                    <li><a class="footer-link" href="#"> Reservas </a></li>
+                </ul>
+            </div>
+            <div class="assinatura">
+                <h2>Sit Back, Relax and SHUT UP!</h2>
+                <h3>FlyUS®  - Todos os Direitos Reservados.</h3>
+                <h5>Desenvolvido por Eduardo Decioli</h5>
+            </div>
+        </footer>
+</body>
+</html>
